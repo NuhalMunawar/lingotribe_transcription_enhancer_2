@@ -5,7 +5,9 @@ document.addEventListener("keydown", async function(e) {
         e.stopPropagation();
         await performAutoCorrect();
     }
-});
+}); 
+
+// Comment
 
 async function performAutoCorrect() {
     const activeElement = document.activeElement;
