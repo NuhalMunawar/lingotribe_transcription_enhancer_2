@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "My Cross-Site Helper",
+  "version": "4.0",
+  "description": "Tools for Google and LingoTribe.",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.google.com/*",
+        "*://lingotribe.world/*",
+        "*://*.lingotribe.world/*"
+      ],
+      "js": ["content.js", "autocorrect.js"]
+    }
+  ]
+}
