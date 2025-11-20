@@ -54,13 +54,23 @@ async function performAutoCorrect() {
     });
 
     // 6. APPLY REPLACEMENTS (Step B: Swap words)
-    for (const [original, replacement] of Object.entries(replacements)) {
-        if (newText.includes(original)) {
-            newText = newText.split(original).join(replacement);
+    // for (const [original, replacement] of Object.entries(replacements)) {
+    //     if (newText.includes(original)) {
+    //         newText = newText.split(original).join(replacement);
+    //         hasChanges = true;
+    //     }
+    // }
+
+    const textArr = newText.split(" ")
+
+    textArr.forEach((word, index) => {
+        if (replacements.hasOwnProperty(word)) {
+            textArr[index] = replacements[word];
             hasChanges = true;
         }
-    }
+    });
 
+    newText = textArr.join(" ");
     // If no changes needed, stop
     if (!hasChanges) {
         setTimeout(() => activeElement.style.backgroundColor = originalBg, 200);
